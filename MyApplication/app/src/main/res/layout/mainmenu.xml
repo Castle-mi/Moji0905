@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <Button
+        android:id="@+id/menu1"
+        android:layout_width="207dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="50dp"
+        android:background="#20AFEF"
+        android:text="길잡이"
+        android:textColor="@color/white"
+        android:textColorHighlight="#76C619"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/menu1explain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/menu2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginEnd="73dp"
+        android:layout_marginBottom="44dp"
+        android:background="#20AFEF"
+        android:text="경로설정"
+        android:textColor="@color/white"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/menu2explain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu1explain" />
+
+    <TextView
+        android:id="@+id/menu1explain"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="55dp"
+        android:gravity="center"
+        android:text="지하철 역사 내 정보들을\n습득하게 해주는 기능입니다.\n해당 버튼을 누르면 카메라 기능이 켜지고,\n이용자의 시선을 비추면\n텍스트 감지 시\n그것을 음성으로 출력합니다."
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/menu2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu1" />
+
+    <TextView
+        android:id="@+id/menu2explain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="136dp"
+        android:gravity="center"
+        android:text="출발 정거장과 목적지 정거장을 입력하면\n지나야하는 총 정거장 수, 환승역을\n안내합니다."
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/menu2"
+        app:layout_constraintTop_toBottomOf="@+id/menu2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
