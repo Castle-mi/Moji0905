@@ -19,6 +19,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainMenu"/>
+        <activity android:name=".Menu1"/>
+        <activity android:name=".Menu2"/>
+        <activity android:name=".Menu2_1"/>
+
 
     </application>
 
