@@ -12,9 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+
         android:text="경로 설정"
         android:textColor="#FFFFFF"
-
         android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,12 +25,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="7dp"
         android:text="출발역"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/startStaion"
+        app:layout_constraintEnd_toStartOf="@+id/startStaion"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -38,84 +37,84 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="4dp"
         android:text="도착역"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName2"
+        app:layout_constraintBaseline_toBaselineOf="@+id/finishStation"
+        app:layout_constraintEnd_toStartOf="@+id/finishStation"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/startStaion"
         android:layout_width="0dp"
         android:layout_height="54dp"
         android:layout_marginTop="37dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="28dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="출발지를 입력해주세요."
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton2"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintBottom_toTopOf="@+id/finishStation"
+        app:layout_constraintEnd_toStartOf="@+id/imagebutton1"
         app:layout_constraintStart_toEndOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/finishStation"
         android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="6dp"
+        android:layout_height="0dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="도착지를 입력해주세요."
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button2"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
-        app:layout_constraintStart_toEndOf="@+id/button2" />
+        app:layout_constraintBottom_toBottomOf="@+id/imagebutton2"
+        app:layout_constraintEnd_toStartOf="@+id/imagebutton2"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/imagebutton2" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imagebutton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="132dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton2"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="23dp"
+        app:layout_constraintBottom_toTopOf="@+id/imagebutton2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintStart_toEndOf="@+id/startStaion"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_btn_speak_now" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/imagebutton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="19dp"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/finishStation"
+        app:layout_constraintTop_toBottomOf="@+id/imagebutton1"
         app:srcCompat="@android:drawable/ic_btn_speak_now" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginEnd="53dp"
-        android:layout_marginBottom="21dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="18dp"
         android:text="냠냐"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
+        app:layout_constraintTop_toBottomOf="@+id/imagebutton2" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -123,7 +122,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="41dp"
         android:layout_marginEnd="41dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
