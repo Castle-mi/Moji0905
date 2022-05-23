@@ -1,42 +1,24 @@
-package com.example.myapplication;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
+package com.example.myApplication;
 
 import android.content.Intent;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.Point;
-import android.graphics.Rect;
 
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
-import android.view.ViewGroup;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.Toast;
 import java.util.ArrayList;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myapplication.R;
 
 public class Menu2 extends AppCompatActivity {
 
@@ -52,6 +34,14 @@ public class Menu2 extends AppCompatActivity {
     ImageButton sttBtn;
     ImageButton fnsBtn;
     Button sttBtn_txt;
+
+    String key="Z3vnEoNpVs46712lc9pY4BwofmRW6PBWWb0UlLRRasU";
+    String startId;
+    String finishId;
+    int startNum;
+    int finishNum;
+
+
 
     //TextView textView;
     final int PERMISSION = 1;
@@ -116,6 +106,36 @@ public class Menu2 extends AppCompatActivity {
 
 
     }
+    
+    public void search(View view){
+        //사용자한테 출발, 도착역 알아오기
+        startId=startStation.getText().toString();
+        finishId=finishStation.getText().toString();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //검색한 출발역, 도착역 id 얻기
+                getStationId(startId, finishId);
+                
+                //정보 출력
+                userWant(startNum, finishNum);
+            }
+        });
+
+
+        
+    }
+    
+    public void getStationId(String start, String finish){
+        String stationUrl;
+    }
+
+    public void userWant(int start, int finish){
+
+    }
+    
+    
     private RecognitionListener listener = new RecognitionListener() {
         @Override
         public void onReadyForSpeech(Bundle bundle) {

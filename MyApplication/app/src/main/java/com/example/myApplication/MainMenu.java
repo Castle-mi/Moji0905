@@ -1,8 +1,7 @@
-package com.example.myapplication;
+package com.example.myApplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
@@ -11,10 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import static android.speech.tts.TextToSpeech.ERROR;
 
+
 import java.util.Locale;
 
 
 public class MainMenu extends AppCompatActivity {
+
     private TextToSpeech sp;
 
     public void onCreate(Bundle savedInstanceState){
