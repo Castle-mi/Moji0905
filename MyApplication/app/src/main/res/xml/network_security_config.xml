@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <network-security-config>
-        <domain-config cleartextTrafficPermitted="true">
-            <domain includeSubdomains="true">ws.bus.go.kr</domain>
-        </domain-config>
-    </network-security-config>
-</PreferenceScreen>
+<network-security-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <base-config cleartextTrafficPermitted="true"/>
+</network-security-config>

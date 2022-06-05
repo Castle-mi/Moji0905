@@ -12,13 +12,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
+
 
 public class Menu2 extends AppCompatActivity {
 
@@ -33,13 +41,19 @@ public class Menu2 extends AppCompatActivity {
 
     ImageButton sttBtn;
     ImageButton fnsBtn;
+    Button sttSearch;
+    Button fnsSearch;
     Button sttBtn_txt;
+    TextView result;
 
+    String url="https://api.odsay.com/v1/api/";
     String key="Z3vnEoNpVs46712lc9pY4BwofmRW6PBWWb0UlLRRasU";
     String startId;
     String finishId;
     int startNum;
     int finishNum;
+
+    String data;
 
 
 
@@ -59,10 +73,34 @@ public class Menu2 extends AppCompatActivity {
         //버튼설정
         startStation = (EditText) findViewById(R.id.startStaion);
         sttBtn = (ImageButton) findViewById(R.id.imagebutton1);
+        sttSearch=(Button) findViewById(R.id.button);
 
         finishStation = (EditText) findViewById(R.id.finishStation);
         fnsBtn = (ImageButton) findViewById(R.id.imagebutton2);
+        fnsSearch=(Button)findViewById(R.id.button2);
 
+        result=(TextView)findViewById(R.id.textView3) ;
+
+
+
+
+        sttSearch.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        data=getXmlData();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                result.setText(data);
+                            }
+                        });
+                    }
+                }).start();
+
+            }
+        });
 
         sttBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -103,6 +141,70 @@ public class Menu2 extends AppCompatActivity {
                 //startActivityForResult(intent, RESULT_SPEECH);
             }
         });
+
+
+    }
+
+    String getXmlData(){
+        StringBuffer buffer=new StringBuffer();
+
+        String str=startStation.getText().toString();
+        String location= URLEncoder.encode(str);
+
+        String queryUrl="https://api.odsay.com/v1/api/searchStation?"+"lang=0"+"&stationName="+location+"&apiKey="+key;
+
+        try{
+            URL url=new URL(queryUrl);
+            InputStream is=url.openStream();
+            XmlPullParserFactory factory= XmlPullParserFactory.newInstance();
+            XmlPullParser xpp= factory.newPullParser();
+            xpp.setInput( new InputStreamReader(is, "UTF-8") ); //inputstream 으로부터 xml 입력받기
+
+            String tag;
+
+            xpp.next();
+            int eventType= xpp.getEventType();
+
+            while( eventType != XmlPullParser.END_DOCUMENT ){
+                switch( eventType ){
+                    case XmlPullParser.START_DOCUMENT:
+                        buffer.append("파싱 시작...\n\n");
+                        break;
+
+                    case XmlPullParser.START_TAG:
+                        tag= xpp.getName();//태그 이름 얻어오기
+
+                        if(tag.equals("station")) ;// 첫번째 검색결과
+                        else if(tag.equals("stationName")){
+
+                            xpp.next();
+                            startNum=Integer.parseInt(xpp.getText().toString());//addr 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                            buffer.append(startNum);
+                            buffer.append("\n"); //줄바꿈 문자 추가
+                        }
+
+                        break;
+
+                    case XmlPullParser.TEXT:
+                        break;
+
+                    case XmlPullParser.END_TAG:
+                        tag= xpp.getName(); //태그 이름 얻어오기
+
+                        if(tag.equals("station")) buffer.append("\n");// 첫번째 검색결과종료..줄바꿈
+
+                        break;
+                }
+
+                eventType= xpp.next();
+            }
+
+        } catch (Exception e) {
+        }
+
+        buffer.append("파싱 끝\n");
+
+        return buffer.toString();//StringBuffer 문자열 객체 반환
 
 
     }

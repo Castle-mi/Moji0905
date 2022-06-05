@@ -23,15 +23,15 @@
         android:orientation="horizontal">
 
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="7dp"
-        android:text="출발역"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="7dp"
+            android:text="확인"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/startStaion"
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="7dp"
-            android:text="도착역"
+            android:text="확인"
             android:textColor="#FFFFFF"
             android:textSize="20dp" />
 
@@ -98,8 +98,8 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="319dp"
-        android:layout_height="161dp"
+        android:layout_width="317dp"
+        android:layout_height="184dp"
         android:layout_marginStart="53dp"
         android:layout_marginEnd="53dp"
         android:layout_marginBottom="21dp"

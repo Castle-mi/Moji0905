@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Loading extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.menu2);
+        setContentView(R.layout.loading);
         //로딩화면 시작.
         Loadingstart();
     }
